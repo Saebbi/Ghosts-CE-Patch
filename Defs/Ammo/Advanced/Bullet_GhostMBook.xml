@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingCategoryDef>
+      <defName>AmmoGhostMBook</defName>
+      <label>GhostMBook</label>
+      <parent>AmmoAdvanced</parent>
+      <iconPath>UI/Icons/ThingCategories/CaliberCharge</iconPath>
+    </ThingCategoryDef>
+	
+	<!-- ==================== AmmoSet ========================== -->
+
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_GhostMBook</defName>
+    <label>GhostMBook</label>
+    <ammoTypes>
+      <Ammo_GhostMBook>Bullet_GhostMBook</Ammo_GhostMBook>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+	
+	<!-- ==================== Ammo ========================== -->
+
+  <ThingDef Name="GhostMBookBase" ParentName="AmmoBase" Abstract="True">
+    <description>GhostMBook</description>
+    <statBases>
+	  <Mass>0.01</Mass>
+	  <Bulk>0.02</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>AmmoGhostMBook</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="GhostMBookBase">
+    <defName>Ammo_GhostMBook</defName>
+    <label>GhostMBook</label>
+    <graphicData>
+      <texPath>Things/Ammo/RPG/HEAT</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2</MarketValue>
+    </statBases>
+    <ammoClass>RocketHEAT</ammoClass>
+	<comps>
+      <li Class="CombatExtended.CompProperties_ExplosiveCE">
+        <explosionDamage>30</explosionDamage>
+        <explosionDamageDef>Mage</explosionDamageDef>
+        <explosionRadius>2</explosionRadius>
+        <soundExplode>MortarBomb_Explode</soundExplode>
+      </li>
+    </comps>
+  </ThingDef>
+	
+	<!-- ================== Projectiles ================== -->
+
+  <ThingDef Name="BaseGhostMBook" ParentName="BaseBullet" Abstract="true">
+    <graphicData>
+      <texPath>Things/Projectile/MBullet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Mage</damageDef>
+	  <explosionRadius>2.0</explosionRadius>
+      <speed>40</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseGhostMBook">
+    <defName>Bullet_GhostMBook</defName>
+    <label>GhostMBook</label>
+	<projectile>
+		<explosionRadius>2</explosionRadius>
+		<damageDef>Mage</damageDef>
+		<damageAmountBase>40</damageAmountBase>
+	</projectile>
+  </ThingDef>
+	
+</Defs>

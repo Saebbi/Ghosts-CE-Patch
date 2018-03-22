@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingCategoryDef>
+      <defName>AmmoCentaurBow</defName>
+      <label>CentaurBow</label>
+      <parent>AmmoAdvanced</parent>
+      <iconPath>UI/Icons/ThingCategories/CaliberCharge</iconPath>
+    </ThingCategoryDef>
+	
+	<!-- ==================== AmmoSet ========================== -->
+
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_CentaurBow</defName>
+    <label>CentaurBow</label>
+    <ammoTypes>
+      <Ammo_CentaurBow>Bullet_CentaurBow</Ammo_CentaurBow>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+	
+	<!-- ==================== Ammo ========================== -->
+
+  <ThingDef Name="CentaurBowBase" ParentName="AmmoBase" Abstract="True">
+    <description>Centaur Bow arrows</description>
+    <statBases>
+	  <Mass>0.01</Mass>
+	  <Bulk>0.02</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>AmmoCentaurBow</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="CentaurBowBase">
+    <defName>Ammo_CentaurBow</defName>
+    <label>Centaur Bow arrow</label>
+    <graphicData>
+      <texPath>Things/Ammo/Rifle/FMJ</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.95</MarketValue>
+    </statBases>
+    <ammoClass>PlasteelArrow</ammoClass>
+  </ThingDef>
+	
+	<!-- ================== Projectiles ================== -->
+
+  <ThingDef Name="BaseCentaurBow" ParentName="BaseBullet" Abstract="true">
+    <graphicData>
+      <texPath>Things/Projectile/MSBBullet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Curse</damageDef>
+      <speed>35</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseCentaurBow">
+    <defName>Arrow_CentaurBow</defName>
+    <label>CentaurBow</label>
+    <projectile>
+      <damageAmountBase>41</damageAmountBase>
+      <armorPenetration>0.6</armorPenetration>
+    </projectile>
+  </ThingDef>
+	
+</Defs>

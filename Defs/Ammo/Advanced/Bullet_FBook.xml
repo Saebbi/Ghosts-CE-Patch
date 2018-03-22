@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingCategoryDef>
+      <defName>AmmoFBook</defName>
+      <label>GhostFBook</label>
+      <parent>AmmoAdvanced</parent>
+      <iconPath>UI/Icons/ThingCategories/CaliberCharge</iconPath>
+    </ThingCategoryDef>
+	
+	<!-- ==================== AmmoSet ========================== -->
+
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_FBook</defName>
+    <label>FBook</label>
+    <ammoTypes>
+      <Ammo_FBook>Bullet_FBook</Ammo_FBook>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+	
+	<!-- ==================== Ammo ========================== -->
+
+  <ThingDef Name="FBookBase" ParentName="AmmoBase" Abstract="True">
+    <description>Fire Book ammo</description>
+    <statBases>
+	  <Mass>0.01</Mass>
+	  <Bulk>0.02</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>AmmoFBook</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="FBookBase">
+    <defName>Ammo_FBook</defName>
+    <label>FBook</label>
+    <graphicData>
+      <texPath>Things/Ammo/RPG/HEAT</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2</MarketValue>
+    </statBases>
+    <ammoClass>RocketThermobaric</ammoClass>
+	<comps>
+      <li Class="CombatExtended.CompProperties_ExplosiveCE">
+        <explosionDamage>15</explosionDamage>
+        <explosionDamageDef>Flame</explosionDamageDef>
+        <explosionRadius>3.5</explosionRadius>
+        <soundExplode>MortarBomb_Explode</soundExplode>
+      </li>
+    </comps>
+  </ThingDef>
+	
+	<!-- ================== Projectiles ================== -->
+
+  <ThingDef Name="BaseFBook" ParentName="BaseBullet" Abstract="true">
+    <graphicData>
+      <texPath>Things/Projectile/FireBullet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Flame</damageDef>
+	  <explosionRadius>3.5</explosionRadius>
+      <speed>30</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseFBook">
+    <defName>Bullet_FBook</defName>
+    <label>Fire</label>
+	<projectile>
+		<explosionRadius>3.5</explosionRadius>
+		<damageDef>Flame</damageDef>
+		<damageAmountBase>15</damageAmountBase>
+	</projectile>
+  </ThingDef>
+	
+</Defs>

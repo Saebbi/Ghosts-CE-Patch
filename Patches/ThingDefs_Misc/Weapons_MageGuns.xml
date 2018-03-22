@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <Operation Class="CombatExtended.PatchOperationMakeGunCECompatible">
+    <defName>MageRifle</defName>
+    <statBases>
+      <Mass>3.2</Mass>
+      <RangedWeapon_Cooldown>1.00</RangedWeapon_Cooldown>
+      <SightsEfficiency>1.10</SightsEfficiency>
+      <ShotSpread>0.13</ShotSpread>
+      <SwayFactor>1.75</SwayFactor>
+      <Bulk>4.50</Bulk>
+      <WorkToMake>60000</WorkToMake>
+    </statBases>
+    <costList>
+      <MageCloth>60</MageCloth>
+      <Plasteel>40</Plasteel>
+      <Component>7</Component>
+    </costList>
+    <Properties>
+		<recoilAmount>0.20</recoilAmount>
+      <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+      <hasStandardCommand>true</hasStandardCommand>
+      <defaultProjectile>Bullet_MageRifle</defaultProjectile>
+      <warmupTime>2.0</warmupTime>
+      <range>49</range>
+      <soundCast>ShotChargeRifle</soundCast>
+      <soundCastTail>GunTail_Medium</soundCastTail>
+      <muzzleFlashScale>9</muzzleFlashScale>
+	  <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+        <burstShotCount>3</burstShotCount>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+    </Properties>
+    <AmmoUser>
+      <magazineSize>24</magazineSize>
+      <reloadTime>4.25</reloadTime>
+      <ammoSet>AmmoSet_MageRifle</ammoSet>
+    </AmmoUser>
+    <FireModes>
+    	<aimedBurstShotCount>3</aimedBurstShotCount>
+    	<aiUseBurstMode>TRUE</aiUseBurstMode>
+    	<aiAimMode>AimedShot</aiAimMode>
+    </FireModes>
+    <weaponTags>
+      <li>MageGun</li>
+    </weaponTags>
+  </Operation>
+ 
+</Patch>

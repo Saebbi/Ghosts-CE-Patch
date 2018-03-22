@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingCategoryDef>
+      <defName>AmmoSBook</defName>
+      <label>GhostSBook</label>
+      <parent>AmmoAdvanced</parent>
+      <iconPath>UI/Icons/ThingCategories/CaliberCharge</iconPath>
+    </ThingCategoryDef>
+	
+	<!-- ==================== AmmoSet ========================== -->
+
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_SBook</defName>
+    <label>SBook</label>
+    <ammoTypes>
+      <Ammo_SBook>Bullet_SBook</Ammo_SBook>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+	
+	<!-- ==================== Ammo ========================== -->
+
+  <ThingDef Name="SBookBase" ParentName="AmmoBase" Abstract="True">
+    <description>Ice Book ammo</description>
+    <statBases>
+	  <Mass>0.01</Mass>
+	  <Bulk>0.02</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>AmmoSBook</li>
+    </thingCategories>
+  </ThingDef>
+
+  <ThingDef ParentName="SBookBase">
+    <defName>Ammo_SBook</defName>
+    <label>SBook</label>
+    <graphicData>
+      <texPath>Things/Ammo/RPG/HEAT</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>2</MarketValue>
+    </statBases>
+    <ammoClass>RocketHEAT</ammoClass>
+	<comps>
+      <li Class="CombatExtended.CompProperties_ExplosiveCE">
+        <explosionDamage>20</explosionDamage>
+        <explosionDamageDef>MageIce</explosionDamageDef>
+        <explosionRadius>5.5</explosionRadius>
+        <soundExplode>MortarBomb_Explode</soundExplode>
+      </li>
+    </comps>
+  </ThingDef>
+	
+	<!-- ================== Projectiles ================== -->
+
+  <ThingDef Name="BaseSBook" ParentName="BaseBullet" Abstract="true">
+    <graphicData>
+      <texPath>Things/Projectile/SBullet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>MageIce</damageDef>
+	  <explosionRadius>5.5</explosionRadius>
+      <speed>30</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseSBook">
+    <defName>Bullet_SBook</defName>
+    <label>Ice</label>
+	<projectile>
+		<explosionRadius>5.5</explosionRadius>
+		<damageDef>MageIce</damageDef>
+		<damageAmountBase>20</damageAmountBase>
+	</projectile>
+  </ThingDef>
+	
+</Defs>
